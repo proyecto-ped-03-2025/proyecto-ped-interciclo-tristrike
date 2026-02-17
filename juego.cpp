@@ -30,6 +30,18 @@ public:
     void sumarPunto(int p) {
         puntaje += p;
     }
+class ListaCircular {
+    private:
+    Jugador* primero;
+    int cantidad;
+
+    public:
+    ListaCircular() {
+        primero = nullptr;
+        cantidad = 0;
+    }
+};
+
 };
 int main() {
     int opcion;
