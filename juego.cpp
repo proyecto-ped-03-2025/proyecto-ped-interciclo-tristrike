@@ -1,18 +1,19 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
 class Jugador {
 private:
     string nombre;
     string id;
     int puntaje;
+    Jugador* siguiente;
 
 public:
     Jugador(string n, string i) {
         nombre = n;
         id = i;
         puntaje = 0;
+        siguiente = nullptr;
     }
 
     string getNombre() {
@@ -30,6 +31,14 @@ public:
     void sumarPunto(int p) {
         puntaje += p;
     }
+
+    void setSiguiente(Jugador* sig) {
+        siguiente = sig;
+    }
+
+    Jugador* getSiguiente() {
+        return siguiente;
+    }
 };
 
 class ListaCircular {
@@ -42,16 +51,23 @@ public:
         primero = nullptr;
         cantidad = 0;
     }
+void inscribir(string nombre, string id) {
+    Jugador* nuevo = new Jugador(nombre, id);
 
-    void inscribir(string nombre, string id) {
-        Jugador* nuevo = new Jugador(nombre, id);
-
-        if (primero == nullptr) {
-            primero = nuevo;
+    if (primero == nullptr) {
+        primero = nuevo;
+    } else {
+        Jugador* temp = primero;
+        while (temp->getSiguiente() != nullptr) {
+            temp = temp->getSiguiente();
         }
-
-        cantidad++;
+        temp->setSiguiente(nuevo);
     }
+
+    cantidad++;
+}
+
+    
 };
 
 int main() {
