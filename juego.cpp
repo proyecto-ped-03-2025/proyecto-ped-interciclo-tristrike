@@ -94,6 +94,7 @@ int main() {
     do {
         cout << "\n===== MENU PRINCIPAL =====\n";
         cout << "1. Inscribir jugador\n";
+        cout << "2. Mostrar jugadores\n";
         cout << "0. Salir\n";
         cout << "Seleccione opcion: ";
         cin >> opcion;
@@ -107,6 +108,10 @@ int main() {
                 getline(cin, id);
                 lista.inscribir(nombre, id);
                 break;
+                case 2:
+                lista.mostrarJugadores();
+                 break;
+
         }
 
     } while (opcion != 0);
