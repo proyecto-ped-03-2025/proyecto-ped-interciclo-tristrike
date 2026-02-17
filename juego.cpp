@@ -62,6 +62,7 @@ public:
         primero = nullptr;
         cantidad = 0;
     }
+
     void inscribir(string nombre, string id) {
         Jugador* nuevo = new Jugador(nombre, id);
 
@@ -78,7 +79,8 @@ public:
         }
         cantidad++;
     }
-    void mostrarJugadores() {
+
+void mostrarJugadores() {
         if (primero == nullptr) {
             cout << "No hay jugadores inscritos.\n";
             return;
@@ -91,7 +93,8 @@ public:
             temp = temp->getSiguiente();
         } while (temp != primero);
     }
-    int jugarRonda(int j1, int j2) {
+
+int jugarRonda(int j1, int j2) {
         if (j1 == j2) return 0;
         if ((j1 == 1 && j2 == 3) ||
             (j1 == 2 && j2 == 1) ||
@@ -99,8 +102,8 @@ public:
             return 1;
         return 2;
     }
-    
-  void realizarJuego() {
+
+void realizarJuego() {
         if (cantidad < 2) {
             cout << "Se necesitan al menos 2 jugadores.\n";
             return;
@@ -173,7 +176,7 @@ public:
     }
 };
 
-  void mostrarGanador() {
+void mostrarGanador() {
         if (primero == nullptr) {
             cout << "No hay jugadores.\n";
             return;
@@ -196,7 +199,7 @@ public:
     }
 };
 
-  void ayuda() {
+void ayuda() {
     cout << "\n===== AYUDA =====\n";
     cout << "1. Inscribe a los jugadores con su nombre y un ID.\n";
     cout << "2. Verifica el listado de los jugadores inscritos.\n";
@@ -204,7 +207,7 @@ public:
     cout << "4. Muestra el ganador del juego.\n";
 }
 
-  void integrantes() {
+void integrantes() {
     cout << "\n===== INTEGRANTES =====\n";
     cout << "Eduardo Daniel Garcia Osorio - 00014325\n";
     cout << "Jeffrey Alessandro Guevara Batres - 00388525\n";
