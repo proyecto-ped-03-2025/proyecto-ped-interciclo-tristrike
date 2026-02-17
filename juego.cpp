@@ -1,6 +1,12 @@
 #include <iostream>
 #include <string>
+#include <ctime>
 using namespace std;
+string convertirJugada(int num) {
+    if (num == 1) return "Piedra";
+    if (num == 2) return "Papel";
+    else return "Tijera";
+}
 class Jugador {
 private:
     string nombre;
@@ -82,6 +88,55 @@ void inscribir(string nombre, string id) {
             temp = temp->getSiguiente();
         } while (temp != primero);
     }
+void realizarJuego() {
+
+    if (cantidad < 2) {
+        cout << "No hay suficientes jugadores\n";
+        return;
+    }
+
+    srand(time(0));
+
+    Jugador* actual = primero;
+
+    while (actual != nullptr) {
+
+        Jugador* rival = actual->getSiguiente();
+
+        while (rival != nullptr) {
+
+            int j1 = rand() % 3 + 1;
+            int j2 = rand() % 3 + 1;
+
+            cout << actual->getNombre() << " saco "
+                 << convertirJugada(j1) << endl;
+
+            cout << rival->getNombre() << " saco "
+                 << convertirJugada(j2) << endl;
+
+            if (j1 == j2) {
+                cout << "Empate\n";
+                actual->sumarPunto(1);
+                rival->sumarPunto(1);
+            }
+            else if ((j1 == 1 && j2 == 3) ||
+                     (j1 == 2 && j2 == 1) ||
+                     (j1 == 3 && j2 == 2)) {
+
+                cout << "Gana " << actual->getNombre() << endl;
+                actual->sumarPunto(3);
+            }
+            else {
+                cout << "Gana " << rival->getNombre() << endl;
+                rival->sumarPunto(3);
+            }
+
+            rival = rival->getSiguiente();
+        }
+
+        actual = actual->getSiguiente();
+    }
+}
 
     
 };
@@ -95,6 +150,7 @@ int main() {
         cout << "\n===== MENU PRINCIPAL =====\n";
         cout << "1. Inscribir jugador\n";
         cout << "2. Mostrar jugadores\n";
+        cout << "3. Realizar juego\n";
         cout << "0. Salir\n";
         cout << "Seleccione opcion: ";
         cin >> opcion;
@@ -111,6 +167,10 @@ int main() {
                 case 2:
                 lista.mostrarJugadores();
                  break;
+                 case 3:
+                 lista.realizarJuego();
+                  break;
+
 
         }
 
