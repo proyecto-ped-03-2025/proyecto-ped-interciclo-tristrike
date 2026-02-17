@@ -56,12 +56,14 @@ void inscribir(string nombre, string id) {
 
     if (primero == nullptr) {
         primero = nuevo;
+         primero->setSiguiente(primero); 
     } else {
         Jugador* temp = primero;
         while (temp->getSiguiente() != nullptr) {
             temp = temp->getSiguiente();
         }
         temp->setSiguiente(nuevo);
+         nuevo->setSiguiente(primero);
     }
 
     cantidad++;
