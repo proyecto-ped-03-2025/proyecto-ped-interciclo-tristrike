@@ -62,7 +62,6 @@ public:
         primero = nullptr;
         cantidad = 0;
     }
-
     void inscribir(string nombre, string id) {
         Jugador* nuevo = new Jugador(nombre, id);
 
@@ -79,13 +78,11 @@ public:
         }
         cantidad++;
     }
-
     void mostrarJugadores() {
         if (primero == nullptr) {
             cout << "No hay jugadores inscritos.\n";
             return;
         }
-
         Jugador* temp = primero;
         do {
             cout << "Jugador: " << temp->getNombre()
@@ -94,7 +91,6 @@ public:
             temp = temp->getSiguiente();
         } while (temp != primero);
     }
-
     int jugarRonda(int j1, int j2) {
         if (j1 == j2) return 0;
         if ((j1 == 1 && j2 == 3) ||
@@ -103,8 +99,8 @@ public:
             return 1;
         return 2;
     }
-
-    void realizarJuego() {
+    
+  void realizarJuego() {
         if (cantidad < 2) {
             cout << "Se necesitan al menos 2 jugadores.\n";
             return;
@@ -200,12 +196,18 @@ public:
     }
 };
 
-void ayuda() {
+  void ayuda() {
     cout << "\n===== AYUDA =====\n";
     cout << "1. Inscribe a los jugadores con su nombre y un ID.\n";
     cout << "2. Verifica el listado de los jugadores inscritos.\n";
     cout << "3. Comienza a realizar el juego que es un todos contra todos.\n";
     cout << "4. Muestra el ganador del juego.\n";
+}
+
+  void integrantes() {
+    cout << "\n===== INTEGRANTES =====\n";
+    cout << "Eduardo Daniel Garcia Osorio - 00014325\n";
+    cout << "Jeffrey Alessandro Guevara Batres - 00388525\n";
 }
 
 int main() {
@@ -220,6 +222,7 @@ int main() {
         cout << "3. Realizar juego\n";
         cout << "4. Mostrar ganador\n";
         cout << "5. Ayuda\n";
+        cout << "6. Integrantes\n";
         cout << "7. Salir\n";
         cout << "Seleccione opcion: ";
         cin >> opcion;
@@ -247,9 +250,12 @@ int main() {
             case 5;
               ayuda();
               break;
+            case 6;
+              integrantes();
+              break;
         }
 
-    } while (opcion != 6);
+    } while (opcion != 7);
 
     return 0;
 }
