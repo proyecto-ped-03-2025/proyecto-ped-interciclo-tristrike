@@ -247,13 +247,13 @@ int main() {
             case 3:
                 lista.realizarJuego();
                 break;
-            case 4;
+            case 4:
                 lista.mostrarGanador();
                 break;
-            case 5;
+            case 5:
               ayuda();
               break;
-            case 6;
+            case 6:
               integrantes();
               break;
         }
