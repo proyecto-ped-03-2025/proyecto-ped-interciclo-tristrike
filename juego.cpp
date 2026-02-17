@@ -88,6 +88,8 @@ void inscribir(string nombre, string id) {
             temp = temp->getSiguiente();
         } while (temp != primero);
     }
+
+
 void realizarJuego() {
 
     if (cantidad < 2) {
@@ -99,11 +101,11 @@ void realizarJuego() {
 
     Jugador* actual = primero;
 
-    while (actual != nullptr) {
+    do {
 
         Jugador* rival = actual->getSiguiente();
 
-        while (rival != nullptr) {
+        while (rival != primero) {
 
             int j1 = rand() % 3 + 1;
             int j2 = rand() % 3 + 1;
@@ -135,10 +137,9 @@ void realizarJuego() {
         }
 
         actual = actual->getSiguiente();
-    }
-}
 
-    
+    } while (actual != primero);
+}
 };
 
 int main() {
