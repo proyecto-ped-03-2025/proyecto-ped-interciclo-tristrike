@@ -68,6 +68,20 @@ void inscribir(string nombre, string id) {
 
     cantidad++;
 }
+    void mostrarJugadores() {   
+        if (primero == nullptr) {
+            cout << "No hay jugadores inscritos.\n";
+            return;
+        }
+
+        Jugador* temp = primero;
+        do {
+            cout << "Jugador: " << temp->getNombre()
+                 << " | ID: " << temp->getID()
+                 << " | Puntaje: " << temp->getPuntaje() << endl;
+            temp = temp->getSiguiente();
+        } while (temp != primero);
+    }
 
     
 };
@@ -80,6 +94,7 @@ int main() {
     do {
         cout << "\n===== MENU PRINCIPAL =====\n";
         cout << "1. Inscribir jugador\n";
+        cout << "2. Mostrar jugadores\n";
         cout << "0. Salir\n";
         cout << "Seleccione opcion: ";
         cin >> opcion;
@@ -93,6 +108,10 @@ int main() {
                 getline(cin, id);
                 lista.inscribir(nombre, id);
                 break;
+                case 2:
+                lista.mostrarJugadores();
+                 break;
+
         }
 
     } while (opcion != 0);
