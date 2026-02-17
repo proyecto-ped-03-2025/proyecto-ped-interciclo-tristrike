@@ -68,6 +68,20 @@ void inscribir(string nombre, string id) {
 
     cantidad++;
 }
+    void mostrarJugadores() {   
+        if (primero == nullptr) {
+            cout << "No hay jugadores inscritos.\n";
+            return;
+        }
+
+        Jugador* temp = primero;
+        do {
+            cout << "Jugador: " << temp->getNombre()
+                 << " | ID: " << temp->getID()
+                 << " | Puntaje: " << temp->getPuntaje() << endl;
+            temp = temp->getSiguiente();
+        } while (temp != primero);
+    }
 
     
 };
