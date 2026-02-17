@@ -200,6 +200,14 @@ public:
     }
 };
 
+void ayuda() {
+    cout << "\n===== AYUDA =====\n";
+    cout << "1. Inscribe a los jugadores con su nombre y un ID.\n";
+    cout << "2. Verifica el listado de los jugadores inscritos.\n";
+    cout << "3. Comienza a realizar el juego que es un todos contra todos.\n";
+    cout << "4. Muestra el ganador del juego.\n";
+}
+
 int main() {
     ListaCircular lista;
     int opcion;
@@ -210,7 +218,9 @@ int main() {
         cout << "1. Inscribir jugador\n";
         cout << "2. Mostrar jugadores\n";
         cout << "3. Realizar juego\n";
-        cout << "0. Salir\n";
+        cout << "4. Mostrar ganador\n";
+        cout << "5. Ayuda\n";
+        cout << "7. Salir\n";
         cout << "Seleccione opcion: ";
         cin >> opcion;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -231,9 +241,15 @@ int main() {
             case 3:
                 lista.realizarJuego();
                 break;
+            case 4;
+                lista.mostrarGanador();
+                break;
+            case 5;
+              ayuda();
+              break;
         }
 
-    } while (opcion != 0);
+    } while (opcion != 6);
 
     return 0;
 }
