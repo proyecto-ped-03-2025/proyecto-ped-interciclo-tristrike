@@ -69,7 +69,8 @@ public:
         if (primero == nullptr) {
             primero = nuevo;
             primero->setSiguiente(primero);
-        } else {
+        } 
+        else {
             Jugador* temp = primero;
             while (temp->getSiguiente() != primero) {
                 temp = temp->getSiguiente();
@@ -91,7 +92,8 @@ void mostrarJugadores() {
                  << " | ID: " << temp->getID()
                  << " | Puntaje: " << temp->getPuntaje() << endl;
             temp = temp->getSiguiente();
-        } while (temp != primero);
+        } 
+            while (temp != primero);
     }
 
 int jugarRonda(int j1, int j2) {
@@ -174,7 +176,6 @@ void realizarJuego() {
 
         } while (actual != primero);
     }
-};
 
 void mostrarGanador() {
         if (primero == nullptr) {
